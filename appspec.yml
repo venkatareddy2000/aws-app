@@ -6,8 +6,13 @@ files:
     destination: /home/ec2-user/deployments/
 
 hooks:
+  
   ApplicationStop:
     - location: scripts/stop.sh
+      timeout: 300
+      
+  BeforeInstall:
+    - location: scripts/backup.sh
       timeout: 300
 
   ApplicationStart:
